@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const { dbConnection } = require("./db/connection");
-const { auth, user } = require("./routes");
+const { auth, user,fingerprint } = require("./routes");
 
 dotenv.config();
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.json());
 // Routes
 app.use("/auth", auth);
 app.use("/user", user);
-app.use("/fingerprint", user);
+app.use("/fingerprint", fingerprint);
 
 // listen
 app.listen(process.env.PORT, () =>
